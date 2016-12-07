@@ -16,4 +16,6 @@ Upload to docker hub
 ```bash
 docker login
 docker push <yourname>/zipcurl
+docker tag <yourname>/zipcurl:latest <yourname>/zipcurl:$(date +%Y%m%d)
+dccker push <yourname>/zipcurl:$(date +%Y%m%d)
 ```
