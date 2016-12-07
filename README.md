@@ -6,8 +6,14 @@ Based off of ubuntu 16.04
 
 ## Building
 
+```bash
 docker-machine start
 eval $(docker-machine env)
+docker build -t <yourname>/zipcurl .
+```
+
+Upload to docker hub
+```bash
 docker login
-docker build -t netdocuments/zipcurl .
-docker push netdocuments/zipcurl
+docker push <yourname>//zipcurl
+```
