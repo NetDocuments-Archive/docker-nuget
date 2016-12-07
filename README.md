@@ -15,5 +15,5 @@ docker build -t <yourname>/zipcurl .
 Upload to docker hub
 ```bash
 docker login
-docker push <yourname>//zipcurl
+docker push <yourname>/zipcurl
 ```
