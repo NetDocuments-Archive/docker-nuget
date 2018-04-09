@@ -1,10 +1,17 @@
-FROM  ubuntu:xenial-20161121
+FROM  microsoft/powershell
 MAINTAINER Spencer Owen <sowen@netdocuments.com>
 
-RUN apt-get update -qq; apt-get install zip curl jq -y
+#https://serverfault.com/a/856593/169180
+ENV TZ 'GMT'
 
-# http://jaredmarkell.com/docker-and-locales/
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8  
-ENV LANGUAGE en_US:en  
-ENV LC_ALL en_US.UTF-8 
+RUN apt-get update -qq; apt-get install nuget git jq tzdata -y
+RUN rm /etc/localtime && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata && \
+    apt-get clean
+
+ADD entrypoint.sh entrypoint.sh
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD []

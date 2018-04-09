@@ -1,21 +1,21 @@
-# docker-zipcurl
+# docker-nuget
 
 A docker container that contains both zip and curl
 
-Based off of ubuntu 16.04
+Based off of microsoft/powershell
 
 ## Building
 
 ```bash
 docker-machine start
 eval $(docker-machine env)
-docker build -t <yourname>/zipcurl .
+docker build -t <yourname>/nuget .
 ```
 
 Upload to docker hub
 ```bash
 docker login
-docker push <yourname>/zipcurl
-docker tag <yourname>/zipcurl:latest <yourname>/zipcurl:$(date +%Y%m%d)
-dccker push <yourname>/zipcurl:$(date +%Y%m%d)
+docker push <yourname>/nuget
+docker tag <yourname>/nuget:latest <yourname>/nuget:$(date +%Y%m%d)
+dccker push <yourname>/nuget:$(date +%Y%m%d)
 ```
